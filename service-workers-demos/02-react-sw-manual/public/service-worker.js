@@ -71,7 +71,7 @@ self.addEventListener("fetch", (event) => {
 // ---------- SW USAGE 2 - Background Sync Handler
 self.addEventListener("sync", (event) => {
   if (event.tag === "send-form") {
-    event.waitUntil(sendPendingData()); // TODO: is queueing{?}
+    event.waitUntil(sendPendingData());
   }
 });
 
@@ -117,7 +117,7 @@ self.addEventListener("push", (event) => {
   const delayedNotification = new Promise((resolve) => {
     setTimeout(() => {
       console.log("HELLO");
-      self.registration.showNotification(title, options).then(resolve); // TODO: offline?
+      self.registration.showNotification(title, options).then(resolve);
     }, 5000);
   });
 
